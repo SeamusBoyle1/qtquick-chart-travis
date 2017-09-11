@@ -12,7 +12,6 @@ addons:
     apt:
         packages:
             - git
-            - g++
             - make
             # a Qt dependency
             - mesa-common-dev
