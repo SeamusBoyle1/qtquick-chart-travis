@@ -4,6 +4,8 @@
 #
 #-------------------------------------------------
 
+include($$PWD/../testcase.pri)
+
 QT       += quick testlib
 
 QT       -= gui
