@@ -6,7 +6,6 @@ dist: trusty
 cache:
     directories:
         - Qt
-        - boost_1_65_1
 
 addons:
     apt:
