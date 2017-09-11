@@ -39,7 +39,7 @@ install:
 
 script:
     - gcc --version
-    - export BOOST_ROOT=$$PWD/boost_1_65_1
+    - export BOOST_ROOT=$PWD/boost_1_65_1
     - export PATH=$PWD/Qt/5.9.1/gcc_64/bin:$PATH;
       mkdir ../build &&
       cd ../build
