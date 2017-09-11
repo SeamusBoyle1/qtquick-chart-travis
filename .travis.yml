@@ -34,6 +34,7 @@ install:
     - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 90
 
 script:
+    - gcc --version
     - export PATH=$PWD/Qt/5.9.1/gcc_64/bin:$PATH;
       mkdir ../build &&
       cd ../build
