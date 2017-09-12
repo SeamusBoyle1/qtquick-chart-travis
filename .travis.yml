@@ -49,7 +49,7 @@ script:
     - qmake -r "CONFIG+=with_gcov"
     - make
     - make check
-    - get_code_cov.sh
+    - ./get_code_cov.sh
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
