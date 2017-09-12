@@ -7,7 +7,7 @@ GCOV="gcov-4.9"
 
 SOURCE_DIR="../qtquick-chart-travis"
 
-for filename in `find $SOURCE_DIR -not -path "$SOURCE_DIR/boost*" -not -path "$SOURCE_DIR/Qt" | egrep '\.cpp'`;
+for filename in `find $SOURCE_DIR -not -path "$SOURCE_DIR/boost*" -not -path "$SOURCE_DIR/Qt/*" | egrep '\.cpp'`;
 do
     out_dirname=$(echo $filename | cut -d"/" -f3-)
     $GCOV -n -o $out_dirname $filename > /dev/null;
