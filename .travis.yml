@@ -21,7 +21,7 @@ before_install:
     - if [ ! -e Qt/5.9.1 ] ; then
           rm -rf Qt ;
           cd downloads ;
-          wget http://download.qt.io/official_releases/qt/5.9/5.9.1/qt-opensource-linux-x64-5.9.1.run ;
+          wget -c http://download.qt.io/official_releases/qt/5.9/5.9.1/qt-opensource-linux-x64-5.9.1.run ;
           chmod +x ./qt-opensource-linux-x64-5.9.1.run ;
           cd .. ;
           ln -s ./download/qt-opensource-linux-x64-5.9.1.run . ;
@@ -32,7 +32,7 @@ before_install:
     - "sh -e /etc/init.d/xvfb start"
     - if [ ! -e boost_1_65_1 ] ; then
           cd downloads ;
-          wget https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2 ;
+          wget -c https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2 ;
           cd .. ;
           tar -xjf downloads/boost_1_65_1.tar.bz2 ;
       fi
