@@ -35,6 +35,7 @@ before_install:
 install:
     - sudo apt-get install -qq g++-4.9
     - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
+    - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-4.9 90
 
 script:
     - gcc --version
@@ -42,8 +43,10 @@ script:
     - export PATH=$PWD/Qt/5.9.1/gcc_64/bin:$PATH;
       mkdir ../build &&
       cd ../build
-    - qmake -r ../qtquick-chart-travis
+    - qmake -r ../qtquick-chart-travis "CONFIG+=with_gcov"
     - make
     - make check
+    - ../qtquick-chart-travis/get_code_cov.sh
 
-
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
