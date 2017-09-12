@@ -1,5 +1,9 @@
 #!/bin/bash
-for filename in `find . | egrep '\.cpp'`;
+
+GCOV="gcov-4.9"
+
+for filename in `find . -not -path "./boost*" -not -path "./Qt/*" | egrep '\.cpp'`;
 do
-  gcov-4.9 -n -o . $filename > /dev/null;
+    out_dirname=$(echo $filename | cut -d"/" -f2-)
+    $GCOV -n -o $out_dirname $filename > /dev/null;
 done
