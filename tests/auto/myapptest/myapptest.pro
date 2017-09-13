@@ -32,3 +32,9 @@ SOURCES += \
         tst_myapptesttest.cpp 
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
+
+INCLUDEPATH += \
+    $$PWD/../../../src/myapp
+
+SOURCES += $$PWD/../../../src/myapp/myapp.cpp
+HEADERS += $$PWD/../../../src/myapp/myapp.h
