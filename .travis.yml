@@ -22,6 +22,7 @@ before_install:
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
           sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
        && sudo apt-get update -qq
+       ;
       fi
     - if [[ "$TRAVIS_OS_NAME" == "linux" ] && [ ! -e Qt/5.9.1 ]] ; then
           rm -rf Qt ;
@@ -46,6 +47,7 @@ before_install:
       # Codecov
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
           sudo pip install codecov
+       ;
       fi
 
 install:
@@ -53,6 +55,7 @@ install:
           sudo apt-get install -qq g++-4.9
        && sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
        && sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-4.9 90
+       ;
       fi
 
 script:
@@ -65,9 +68,11 @@ script:
        && make check
        && ./get_code_cov.sh
        && codecov
+       ;
       fi
 
 after_success:
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
           bash <(curl -s https://codecov.io/bash)
+       ;
       fi
