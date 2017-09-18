@@ -4,7 +4,7 @@ compiler: gcc
 dist: trusty
 
 os:
-    - linux
+    #- linux
     - osx
 
 cache:
