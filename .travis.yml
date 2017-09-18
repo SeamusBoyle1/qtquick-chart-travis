@@ -49,9 +49,11 @@ before_install:
       fi
     #- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install boost; fi
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ ! -e boost_1_65_1 ]] ; then
-          cd downloads ;
-          wget https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2 ;
-          cd .. ;
+          if [ ! -f downloads/boost_1_65_1.tar.bz2; then
+              cd downloads ;
+              wget https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2 ;
+              cd .. ;
+          fi
           tar -xjf downloads/boost_1_65_1.tar.bz2 ;
       fi
       # Codecov
